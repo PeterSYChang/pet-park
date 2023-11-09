@@ -86,41 +86,6 @@
     
   </div>
 
-  <script type="text/javascript">
-
-    var iosLinkUrl = "https://apps.apple.com/tw/app/%E5%AF%B5%E7%89%A9%E5%85%AC%E5%9C%92/id6448940325?l=en-GB"
-    var androidLinkurl = "https://play.google.com/store/apps/details?id=tw.com.shop.petpark"
-
-
-    var u = navigator.userAgent, isAndroid, isIOS
-
-    window.onload = function () {
-      init()
-    }
-
-      function init() {
-      isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端
-      isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-      const titleEle = document.querySelector('#title')
-      const $modal = $('.modal')
-      var link = '/'
-      if(isIOS) {
-        link = iosLinkUrl
-        titleEle.innerHTML = '此網站正在嘗試跳轉至 App Store。您要允許嗎？'
-      } else if(isAndroid) { 
-        link = androidLinkurl
-        titleEle.innerHTML = '此網站正在嘗試跳轉至 Google Play。您要允許嗎？'
-      }else{
-        location.href = '/'
-      }
-      $modal.show()
-      $('.open-app').attr('href', link)
-      $('.Ignore').click(function () {
-        $modal.hide()
-      })
-    }
-
-  </script>
 </body>
 
 </html>
