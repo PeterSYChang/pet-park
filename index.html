@@ -1,75 +1,126 @@
 <!DOCTYPE html>
-<html lang="en" id="facebook">
-  <head>
-    <title>Error</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <meta name="robots" content="noindex,nofollow" />
-    <style nonce="wfWasHre">
-      html,
-      body {
-        color: #333;
-        font-family: 'Lucida Grande', 'Tahoma', 'Verdana', 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-      }
-      #header {
-        height: 30px;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        text-align: center;
-      }
-      #icon {
-        width: 30px;
-      }
-      .core {
-        margin: auto;
-        padding: 1em 0;
-        text-align: left;
-        width: 904px;
-      }
-      h1 {
-        font-size: 18px;
-      }
-      p {
-        font-size: 13px;
-      }
-      .footer {
-        border-top: 1px solid #ddd;
-        color: #777;
-        float: left;
-        font-size: 11px;
-        padding: 5px 8px 6px 0;
-        width: 904px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="header">
-      <a href="//www.facebook.com/"
-        ><img
-          id="icon"
-          src="//static.facebook.com/images/logos/facebook_2x.png"
-      /></a>
-    </div>
-    <div class="core">
-      <h1>Sorry, something went wrong.</h1>
-      <p>We&#039;re working on getting this fixed as soon as we can.</p>
-      <p><a id="back" href="//www.facebook.com/">Go Back</a></p>
-      <div class="footer">
-        Meta &#169; 2023 &#183;
-        <a href="//www.facebook.com/help/?ref=href052">Help</a>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="al:android:package" content="tw.com.shop.petpark" />
+  <meta property="al:android:url" content="petpark://appshare/" />
+  <meta property="al:android:app_name" content=“寵物公園" />
+  <meta property="al:ios:url" content="petpark://appshare/" />
+  <meta property="al:ios:app_store_id" content="6448940325" />
+  <meta property="al:ios:app_name" content="寵物公園" />
+  <meta property="al:web:url" content="https://shop.petpark.com.tw/appshare/" />
+  <title></title>
+  <style type="text/css">
+    body,
+    html {
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modal {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      display: none;
+    }
+
+    .modal-bg {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.5;
+    }
+
+    .modal-content {
+      width: 80%;
+      background-color: #fff;
+      border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 5%;
+    }
+
+    .modal-btn {
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .modal-btn span {
+      margin-left: 10px;
+      color: #1890ff;
+      text-decoration: none;
+    }
+
+    .modal-btn a {
+      margin-left: 10px;
+      color: #1890ff;
+      text-decoration: none;
+    }
+
+    .Maintained {
+      display: none;
+      text-align: center;
+      position: relative;
+      top: 45%;
+    }
+  </style>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="modal">
+    <div class="modal-bg"></div>
+    <div class="modal-content">
+      <div id="title"></div>
+      <div class="modal-btn">
+        <a class="Ignore" href="/">忽略</a>
+        <a class="open-app">允許</a>
       </div>
     </div>
-    <script nonce="wfWasHre">
-      document.getElementById('back').onclick = function () {
-        if (history.length > 1) {
-          history.back();
-          return false;
-        }
-      };
-    </script>
-  </body>
+    
+  </div>
+
+  <script type="text/javascript">
+
+    var iosLinkUrl = "https://apps.apple.com/tw/app/%E5%AF%B5%E7%89%A9%E5%85%AC%E5%9C%92/id6448940325?l=en-GB"
+    var androidLinkurl = "https://play.google.com/store/apps/details?id=tw.com.shop.petpark"
+
+
+    var u = navigator.userAgent, isAndroid, isIOS
+
+    window.onload = function () {
+      init()
+    }
+
+      function init() {
+      isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端
+      isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+      const titleEle = document.querySelector('#title')
+      const $modal = $('.modal')
+      var link = '/'
+      if(isIOS) {
+        link = iosLinkUrl
+        titleEle.innerHTML = '此網站正在嘗試跳轉至 App Store。您要允許嗎？'
+      } else if(isAndroid) { 
+        link = androidLinkurl
+        titleEle.innerHTML = '此網站正在嘗試跳轉至 Google Play。您要允許嗎？'
+      }else{
+        location.href = '/'
+      }
+      $modal.show()
+      $('.open-app').attr('href', link)
+      $('.Ignore').click(function () {
+        $modal.hide()
+      })
+    }
+
+  </script>
+</body>
+
 </html>
-<!-- @codegen-command : phps GenerateErrorPages --><!-- @generated SignedSource<<3029f44ab5c4963dcc7225b0853c1bab>> -->
