@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tw.com.shop.petpark.uat",
+      "sha256_cert_fingerprints": [
+        "5A:70:34:54:07:77:B2:26:12:12:40:EC:04:D9:8F:73:B7:B2:10:EF:26:A0:99:52:1A:73:83:FF:12:3A:88:38"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "tw.com.shop.petpark",
+      "sha256_cert_fingerprints": [
+        "5A:70:34:54:07:77:B2:26:12:12:40:EC:04:D9:8F:73:B7:B2:10:EF:26:A0:99:52:1A:73:83:FF:12:3A:88:38"
+      ]
+    }
+  }
+]

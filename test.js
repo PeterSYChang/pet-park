@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { stringify } = require('querystring');
 async function getHTML() {
   const res = await fetch(
     'https://mcstaging.shop.petpark.com.tw/appshare/h5TZ.html?type=inbox&openExternalBrowser=1'
@@ -13,4 +14,5 @@ async function getHTML() {
     }
   });
 }
+
 getHTML();
